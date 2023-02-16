@@ -1,0 +1,208 @@
+<!-- <div *ngIf="alert" class="alert alert-dark" role="alert">
+    <strong>Success!!</strong>Registered Successfully.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">. -->
+<!-- <span aria-hidden="true">&times;</span>
+    </button> -->
+<!-- </div> -->
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Add User</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form #register="ngForm" (ngSubmit)="register.form.valid && registerFn(register.value)">
+                            <!-- <div class="form-group pt-3">
+                                <label for="userId" class="form-label">User ID:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-white">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" class="form-control" id="userId" placeholder="User ID"
+                                        [(ngModel)]="form.userId" name="userId" #userId="ngModel" required minlength="5"
+                                        maxlength="15" [ngClass]="{error: userId.errors && userId.touched}">
+                                    <div *ngIf="userId.errors && userId.touched">
+                                        <small class="text-danger" *ngIf="userId.errors['required']">User ID is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="userId.errors['minlength']">Minimum of 5 and
+                                            maximum of 15 characters is allowed.</small>
+                                        <small class="text-danger" *ngIf="userId.errors['maxlength']">Maximum of 15
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="form-group pt-3">
+                                <label for="cpassword" class="form-label">Confirm Password:<span style="color: red;">*</span></label>
+                                <div class="input-field border bg-white">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" [(ngModel)]="form.cpassword"  name="cpassword" #cpassword="ngModel" required minlength="5" maxlength="15" [ngClass]="{error: cpassword.errors && cpassword.touched}">  
+                                    <div *ngIf="cpassword.errors && cpassword.touched">
+                                        <small class="text-danger" *ngIf="cpassword.errors['required']">Password is required.</small>
+                                        <small class="text-danger" *ngIf="cpassword.errors['minlength']">Minimum of 5 and maximum of 15 characters is allowed.</small>
+                                        <small class="text-danger" *ngIf="cpassword.errors['maxlength']">Maximum of 15 characters is allowed.</small>
+                                    </div>  
+                                </div>
+                            </div> -->
+                            <div class="form-group pt-3">
+                                <label for="firstName" class="form-label">First Name:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                                        [(ngModel)]="form.firstName" name="firstName" #firstName="ngModel" required
+                                        minlength="1" maxlength="15"
+                                        [ngClass]="{error: firstName.errors && firstName.touched}">
+                                    <div *ngIf="firstName.errors && firstName.touched">
+                                        <small class="text-danger" *ngIf="firstName.errors['required']">First Name is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="firstName.errors['maxlength']">Maximum of 15
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="lastName" class="form-label">Last Name:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+                                        [(ngModel)]="form.lastName" name="lastName" #lastName="ngModel" required
+                                        minlength="1" maxlength="15"
+                                        [ngClass]="{error: lastName.errors && lastName.touched}">
+                                    <div *ngIf="lastName.errors && lastName.touched">
+                                        <small class="text-danger" *ngIf="lastName.errors['required']">Last Name is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="lastName.errors['maxlength']">Maximum of 15
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="primaryLocation" class="form-label">Primary Location:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="primaryLocation"
+                                        placeholder="Primary primaryLocation" [(ngModel)]="form.primaryLocation"
+                                        name="primaryLocation" #primaryLocation="ngModel" required maxlength="15"
+                                        [ngClass]="{error: primaryLocation.errors && primaryLocation.touched}">
+                                    <div *ngIf="primaryLocation.errors && primaryLocation.touched">
+                                        <small class="text-danger" *ngIf="primaryLocation.errors['required']">Primary
+                                            Location is required.</small>
+                                        <small class="text-danger" *ngIf="primaryLocation.errors['maxlength']">Maximum
+                                            of 15 characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="address" class="form-label">Address:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="address" placeholder="Address"
+                                        [(ngModel)]="form.address" name="address" #address="ngModel" required
+                                        maxlength="30" [ngClass]="{error: address.errors && address.touched}">
+                                    <div *ngIf="address.errors && address.touched">
+                                        <small class="text-danger" *ngIf="address.errors['required']">Address is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="address.errors['maxlength']">Maximum of 30
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="permanentAddress" class="form-label">Permanent Address:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="permanentAddress"
+                                        placeholder="Permanent Address" [(ngModel)]="form.permanentAddress"
+                                        name="permanentAddress" #permanentAddress="ngModel" required maxlength="30"
+                                        [ngClass]="{error: permanentAddress.errors && permanentAddress.touched}">
+                                    <div *ngIf="permanentAddress.errors && permanentAddress.touched">
+                                        <small class="text-danger" *ngIf="permanentAddress.errors['required']">Permanent
+                                            Address is required.</small>
+                                        <small class="text-danger" *ngIf="permanentAddress.errors['maxlength']">Maximum
+                                            of 30 characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="grossSalary" class="form-label">Gross Salary (INR):<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="decimal" class="form-control" id="grossSalary"
+                                        placeholder="Gross grossSalary" [(ngModel)]="form.grossSalary"
+                                        name="grossSalary" #grossSalary="ngModel" required [pattern]="integerRegex"
+                                        [ngClass]="{error: grossSalary.errors && grossSalary.touched}">
+                                    <div *ngIf="grossSalary.errors && grossSalary.touched">
+                                        <small class="text-danger" *ngIf="grossSalary.errors['required']">grossSalary is
+                                            required.</small><br>
+                                        <small class="text-danger" *ngIf="grossSalary.errors['pattern']">Please enter a
+                                            valid amount.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="job" class="form-label">Job:<span style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="job" placeholder="Job"
+                                        [(ngModel)]="form.job" name="job" #job="ngModel" required maxlength="15"
+                                        [ngClass]="{error: job.errors && job.touched}">
+                                    <div *ngIf="job.errors && job.touched">
+                                        <small class="text-danger" *ngIf="job.errors['required']">Job is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="job.errors['maxlength']">Maximum of 15
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="jobLocation" class="form-label">Job Location:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="jobLocation" placeholder="Job Location"
+                                        [(ngModel)]="form.jobLocation" name="jobLocation" #jobLocation="ngModel"
+                                        required maxlength="20"
+                                        [ngClass]="{error: jobLocation.errors && jobLocation.touched}">
+                                    <div *ngIf="jobLocation.errors && jobLocation.touched">
+                                        <small class="text-danger" *ngIf="jobLocation.errors['required']">Job Location
+                                            is required.</small>
+                                        <small class="text-danger" *ngIf="jobLocation.errors['maxlength']">Maximum of 20
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group pt-3">
+                                <label for="password" class="form-label">Password:<span
+                                        style="color: red;">*</span></label>
+                                <div class="input-field border bg-white">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input type="password" class="form-control" id="password" placeholder="Password"
+                                        [(ngModel)]="form.password" name="password" #password="ngModel" required
+                                        minlength="5" maxlength="15"
+                                        [ngClass]="{error: password.errors && password.touched}">
+                                    <div *ngIf="password.errors && password.touched">
+                                        <small class="text-danger" *ngIf="password.errors['required']">Password is
+                                            required.</small>
+                                        <small class="text-danger" *ngIf="password.errors['minlength']">Minimum of 5 and
+                                            maximum of 15 characters is allowed.</small>
+                                        <small class="text-danger" *ngIf="password.errors['maxlength']">Maximum of 15
+                                            characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100"
+                                [disabled]="register.form.status==='INVALID'">Add User</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="showMessage">
+            <br>
+            <div class="alert alert-success">
+                Registered Successfully!
+            </div>
+        </div>
+    </div>
+</div>

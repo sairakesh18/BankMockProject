@@ -1,0 +1,38 @@
+
+<div class="container mt-5">
+  
+    <h2>Users </h2>
+    <div class="search-hero my-3">
+      <div class="row">
+        <div class="col-md-6">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" placeholder="Search User">
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job</th>
+            <th>Primary Location</th>
+            <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | filter:searchText ">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.job }}</td>
+          <td>{{user.primaryLocation}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" routerLink="/viewuserdetails/{{user.id}}"><i class="far fa-eye"></i></button>&nbsp;
+            <button type="button" class="btn btn-warning" routerLink="/updateuser/{{user.id}}"><i class="far fa-edit"></i></button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="delete(user.id)"><i class="far fa-trash-alt"></i></button>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

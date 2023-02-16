@@ -1,0 +1,101 @@
+{
+  "users": [
+    {
+      "firstName": "Thomas",
+      "lastName": "Cat",
+      "primaryLocation": "BLR",
+      "address": "Bangalore",
+      "permanentAddress": "Mysuru",
+      "grossSalary": 69000,
+      "job": "Analyst",
+      "jobLocation": "Bengaluru",
+      "id": 1
+    },
+    {
+      "firstName": "Lagger",
+      "lastName": "Kumar",
+      "primaryLocation": "HYD",
+      "address": "Bangalore",
+      "permanentAddress": "Mysuru",
+      "grossSalary": "61000",
+      "job": "FullStack",
+      "jobLocation": "Bengaluru",
+      "id": 2
+    },
+    {
+      "firstName": "Jeevan",
+      "lastName": "Puhan",
+      "primaryLocation": "HYD",
+      "address": "Bangalore",
+      "permanentAddress": "Mumbai",
+      "grossSalary": "60000",
+      "job": "Cloud Engineer",
+      "jobLocation": "HYD",
+      "id": 4
+    }
+  ],
+  "bankdetails": [
+    {
+      "id": 1,
+      "routingNumber": "091409791",
+      "bankType": "Domestic",
+      "accountNumber": "9128745038629539",
+      "accountType": "Savings",
+      "userId": 1,
+      "accountOwnerName": "Mr. Thomas Freddy Cat",
+      "status": "Active",
+      "primaryBank": true,
+      "nickName": "AMEX New York",
+      "authenticationMethod": "Identity",
+      "transactionType": "OPEN_ACCOUNT",
+      "communicationChannel": "WEB"
+    },
+    {
+      "id": 2,
+      "routingNumber": "091409792",
+      "bankType": "Domestic",
+      "accountNumber": "9128745038629538",
+      "accountType": "Savings",
+      "userId": 1,
+      "accountOwnerName": "Mr. Thomas Freddy Cat",
+      "status": "Active",
+      "primaryBank": true,
+      "nickName": "AMEX New York",
+      "authenticationMethod": "Identity",
+      "transactionType": "OPEN_ACCOUNT",
+      "communicationChannel": "WEB"
+    },
+    {
+      "id": 3,
+      "routingNumber": "091409791",
+      "bankType": "Domestic",
+      "accountNumber": "9128745038629539",
+      "accountType": "Savings",
+      "userId": 2,
+      "accountOwnerName": "Mr. Lagger Kumar",
+      "status": "Active",
+      "primaryBank": true,
+      "nickName": "AMEX New York",
+      "authenticationMethod": "Identity",
+      "transactionType": "OPEN_ACCOUNT",
+      "communicationChannel": "WEB"
+    },
+    {
+      "id": 4,
+      "routingNumber": "091409791",
+      "bankType": "Domestic",
+      "accountNumber": "9128745038629539",
+      "accountType": "Savings",
+      "userId": 4,
+      "accountOwnerName": "Mr. Jeevan Puhan",
+      "status": "Active",
+      "primaryBank": true,
+      "nickName": "AMEX New York",
+      "authenticationMethod": "Identity",
+      "transactionType": "OPEN_ACCOUNT",
+      "communicationChannel": "WEB"
+    }
+
+    
+  ]
+}

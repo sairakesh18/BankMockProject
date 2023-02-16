@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row mt-4 mb-3">
+    <div
+      class="col-md-4"
+      *ngFor="let bank of banks; let indexOfElement = index"
+    >
+      <div class="card p-3 mb-2">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <div class="icon"><i class="bx bxl-mailchimp"></i></div>
+              <div class="ms-2 c-details">
+                <h4 class="mb-0 fw-bolder">Bank Account</h4>
+                <!-- <span>1 days ago</span> -->
+              </div>
+            </div>
+            <div class="px-2 bg-black border border-black rounded text-white">
+              <strong>{{ indexOfElement + 1 }}</strong>
+            </div>
+          </div>
+          <div class="mt-4">
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+                  <td align="left" class="fw-bold">Routing No.</td>
+                  <td align="right">{{ bank.routingNumber }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Bank Type</td>
+                  <td align="right">{{ bank.bankType }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Acc Number</td>
+                  <td align="right">{{ bank.accountNumber }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Acc Type</td>
+                  <td align="right">{{ bank.accountType }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Acc Owner</td>
+                  <td align="right">{{ bank.accountOwnerName }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Nickname</td>
+                  <td align="right">{{ bank.nickName }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Status</td>
+                  <td align="right">{{ bank.status | titlecase }}</td>
+                </tr>
+                <tr>
+                  <td align="left" class="fw-bold">Primary Acc</td>
+                  <td align="right">{{ bank.primaryBank ? 'Yes' : 'No' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer d-grid gap-2">
+          <button
+          type="button"
+          class="btn btn-warning"
+          routerLink="/updatebank/{{ bank.id }}"
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-danger" (click)="delete(bank.id)">
+          Delete
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

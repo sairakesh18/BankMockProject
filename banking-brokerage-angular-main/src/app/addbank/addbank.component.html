@@ -1,0 +1,221 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Add Bank Details</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form #register="ngForm" (ngSubmit)="register.form.valid && registerFn(register.value)">
+                            <div class="form-group pt-3">
+                                <label for="routingNumber" class="form-label">Routing Number:<span style="color: red;">*</span></label>
+                                <div class="input-field border bg-white">
+                                    <!-- <i class="fa fa-university" aria-hidden="true"></i>  -->
+                                    <input type="text" class="form-control" id="routingNumber" placeholder="Routing Number" [(ngModel)]="form.routingNumber"  name="routingNumber" #routingNumber="ngModel" required minlength="9" maxlength="9" required [pattern]="integerRegex" [ngClass]="{error: routingNumber.errors && routingNumber.touched}"> 
+                                    <div *ngIf="routingNumber.errors && routingNumber.touched">
+                                        <small class="text-danger" *ngIf="routingNumber.errors['required']">*Required field.</small>
+                                        <small class="text-danger" *ngIf="routingNumber.errors['pattern']">Only numeric is allowed.</small>
+                                        <small class="text-danger" *ngIf="routingNumber.errors['minlength']">Routing ID should be of 9 digits</small>
+                                        <small class="text-danger" *ngIf="routingNumber.errors['maxlength']">Maximum of 9 digits is allowed.</small>
+                                    </div> 
+                                </div>
+                            </div>
+                        <div class="form-group pt-3">
+                            <div id="bankType"class="form-group pt-3">
+                                <label for="bankType" class="form-label">Bank Type:<span style="color: red;">*</span></label>                       
+                                <select name="bankType" class="form-control" id="bankType"  [(ngModel)]="form.bankType" required #bankType="ngModel" >
+                                    <option value="domestic">Domestic</option>
+                                    <option value="foreign" disabled>Foreign</option>
+                                </select>
+                                <div *ngIf= "bankType.invalid && bankType.touched" class="validation"  >
+                                    <small>*Required field</small> 
+                                </div>
+                                <!-- <span *ngIf="bankType.Form.get('bankType').hasError(required) && bankType.get('bankType').touched" class='error'></span> -->
+                                <!-- <input class="form-control" id="banktype" name="banktype" #banktype="ngModel" required [ngClass]="{error: banktype.errors && banktype.touched}">
+                                <div *ngIf="banktype.errors && banktype.touched">
+                                    <small class="text-danger" *ngIf="banktype.errors['required']">Bank Type is required.</small> -->
+                                <!-- </div> -->
+                            </div>
+                            
+                        </div>
+
+                            <div class="form-group pt-3">
+                                <label for="accountNumber" class="form-label">Account Number:<span style="color: red;">*</span></label>
+                                <div class="input-field border bg-white">
+                                    <!-- <span class="fa fa-lock p-2"></span> -->
+                                    <input type="text" class="form-control" id="accountNumber" placeholder="Account No" [(ngModel)]="form.accountNumber"  name="accountNumber" #accountNumber="ngModel" required minlength="10" maxlength="16" required [pattern]="integerRegex" [ngClass]="{error: accountNumber.errors && accountNumber.touched}">  
+                                    <div *ngIf="accountNumber.errors && accountNumber.touched">
+                                        <small class="text-danger" *ngIf="accountNumber.errors['required']">*Required field</small>
+                                        <small class="text-danger" *ngIf="accountNumber.errors['pattern']">Only numeric is allowed.</small>
+                                        <small class="text-danger" *ngIf="accountNumber.errors['minlength']">Minimum of 10 and maximum of 16 characters is allowed.</small>
+                                        <small class="text-danger" *ngIf="accountNumber.errors['maxlength']">Maximum of 16 characters is allowed.</small>
+                                    </div>  
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group pt-3">
+                                <div id="accountType"class="form-group pt-3">
+                                    <label for="accountType"  class="form-label">Account Type:<span style="color: red;">*</span></label>                       
+                                    <select name="accountType" class="form-control" id="accountType" [(ngModel)]="form.accountType" required #accountType="ngModel">
+                                        <option value="Savings">SAVINGS</option>
+                                        <option value="Checking">CHECKING</option>
+                                    </select>
+                                    <div *ngIf= "accountType.invalid && accountType.touched" class="validation"  >
+                                        <small>*Required field</small> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <label for="accountOwnerName" class="form-label">Account Owner Name:<span style="color: red;">*</span></label>
+                                
+                                
+                                <!-- <div class="input-field border bg-white">
+                                    <label for="prefix" class="form-label">Prefix:<span style="color: red;">*</span></label>
+                                    <br>
+                                    <select name="prefix" id="prefix" [(ngModel)]="form.prefix">
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Mrs.">Mrs.</option>
+                                    </select>
+                                     <br> -->
+                                     
+
+                                <!-- <label for="firstname" class="form-label">First Name:<span style="color: red;">*</span></label> -->
+                                <div class="input-field border bg-yellow">                                   
+                                    <input type="text" class="form-control" id="accountOwnerName" placeholder="Full Name" [(ngModel)]="form.accountOwnerName"  name="accountOwnerName" #accountOwnerName="ngModel" required minlength="1" maxlength="30" [ngClass]="{error: accountOwnerName.errors && accountOwnerName.touched}">
+                                    <div *ngIf="accountOwnerName.errors && accountOwnerName.touched">
+                                        <small class="text-danger" *ngIf="accountOwnerName.errors['required']">*Required field</small>
+                                        <small class="text-danger" *ngIf="accountOwnerName.errors['maxlength']">Maximum of 30 characters is allowed.</small>
+                                    </div>
+                                </div>
+
+                                <!-- <label for="middlename" class="form-label">Middle Name:<span style="color: red;">*</span></label>
+                                    <div class="input-field border bg-yellow">  
+                                        <input type="text" class="form-control" id="middlename" placeholder="Middle Name" [(ngModel)]="form.middlename"  name="middlename" #middlename="ngModel" required minlength="1" maxlength="15" [ngClass]="{error: middlename.errors && middlename.touched}">
+                                        <div *ngIf="middlename.errors && middlename.touched">
+                                            <small class="text-danger" *ngIf="middlename.errors['required']">Middle Name is required.</small>
+                                            <small class="text-danger" *ngIf="middlename.errors['maxlength']">Maximum of 15 characters is allowed.</small>
+                                        </div>
+                                    </div><br> -->
+                                
+                            
+                                <!-- <div class="form-group pt-3"> -->
+                                    <!-- <label for="lastname" class="form-label">Last Name:<span style="color: red;">*</span></label>
+                                    <div class="input-field border bg-yellow">  
+                                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" [(ngModel)]="form.lastname"  name="lastname" #lastname="ngModel" required minlength="1" maxlength="15" [ngClass]="{error: lastname.errors && lastname.touched}">
+                                        <div *ngIf="lastname.errors && lastname.touched">
+                                            <small class="text-danger" *ngIf="lastname.errors['required']">Last Name is required.</small>
+                                            <small class="text-danger" *ngIf="lastname.errors['maxlength']">Maximum of 15 characters is allowed.</small>
+                                        </div>
+                                    </div> -->
+                                <!-- </div> -->
+                            </div>
+                            <!-- </div> -->
+                            <div class="form-group pt-3">
+                                <label for="nickName" class="form-label">Nickname:<span style="color: red;">*</span></label>
+                                <div class="input-field border bg-yellow">
+                                    <input type="text" class="form-control" id="nickName" placeholder="Nickname" [(ngModel)]="form.nickName"  name="nickName" #nickName="ngModel" required maxlength="15" [ngClass]="{error: nickName.errors && nickName.touched}">
+                                    <div *ngIf="nickName.errors && nickName.touched">
+                                        <small class="text-danger" *ngIf="nickName.errors['required']">*Required field</small>
+                                        <small class="text-danger" *ngIf="nickName.errors['maxlength']">Maximum of 15 characters is allowed.</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <!-- <div id="primaryBank"class="form-group pt-3"> -->
+                                    <label for="primaryBank" class="form-label">Primary Bank:<span style="color: red;">*</span></label>                       
+                                    <select name="primaryBank" class="form-control" id="primaryBank" [(ngModel)]="form.primaryBank" name="primaryBank" required #primaryBank="ngModel" [ngClass]="{error: primaryBank.errors && primaryBank.touched}">
+                                        <div *ngIf="primaryBank.errors && primaryBank.touched">
+                                            <small class="text-danger" *ngIf="primaryBank.errors['required']">*Required field</small>
+                                        </div>
+                                        <option [ngValue]="true">true</option>
+                                        <option [ngValue]="false">false</option>
+                                    </select>
+                                    <div *ngIf= "primaryBank.invalid && primaryBank.touched" class="validation" >
+                                        <small>*Required field</small> 
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+
+                          
+
+                        <div class="form-group pt-3">
+                            <!-- <div id="status"class="form-group pt-3"> -->
+                                <label for="status" class="form-label">Status:<span style="color: red;">*</span></label>                       
+                                <select name="status"  class="form-control" id="status" [(ngModel)]="form.status" required #status="ngModel" >
+                                    <option value="Active">Active</option>
+                                    <option value="Draft">Draft</option>
+                                </select>
+                                <div *ngIf= "status.invalid && status.touched" class="validation" >
+                                    <small>*Required field</small> 
+                                </div>
+                                
+                            <!-- </div> -->
+                        </div>
+
+
+                                                     
+                           <div class="form-group pt-3">
+                            <label for="authenticationMethod" class="form-label">Authentication Method:</label>
+                            <div class="input-field border bg-yellow">
+                                <input type="text" class="form-control" id="authenticationMethod" placeholder="Authentication Method" [(ngModel)]="form.authenticationMethod"  name="authenticationMethod" #authenticationMethod="ngModel" required maxlength="15" [ngClass]="{error: authenticationMethod.errors && authenticationMethod.touched}">    
+                                <!-- <div *ngIf="job.errors && job.touched">
+                                    <small class="text-danger" *ngIf="job.errors['required']">Job is required.</small>
+                                    <small class="text-danger" *ngIf="job.errors['maxlength']">Maximum of 15 characters is allowed.</small>
+                                </div> -->
+                                <!-- <div *ngIf= "authenticationMethod.invalid && authenticationMethod.touched" class="validation" >
+                                    <small>Authentication Method is required</small> 
+                                </div> -->
+                            </div>
+                           </div>
+
+                           <div class="form-group pt-3">
+                            <div id="transactionType"class="form-group pt-3">
+                                <label for="transactionType" class="form-label">Transaction Type:<span style="color: red;">*</span></label>                       
+                                <select name="transactionType" class="form-control" id="transactionType" [(ngModel)]="form.transactionType"  required #transactionType="ngModel">
+                                    <option value="open_account">OPEN_ACCOUNT</option>
+                                    <option value="add_bank">ADD_BANK</option>
+                                    <option value="open_account_prospect">OPEN_ACCOUNT_PROSPECT</option>
+                                </select>
+                                <div *ngIf= "transactionType.invalid && transactionType.touched" class="validation" >
+                                    <small>*Required field</small> 
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                        <div class="form-group pt-3">
+                            <div id="CommunicationChannel"class="form-group pt-3">
+                                <label for="CommunicationChannel" class="form-label">Communication Channel:<span style="color: red;">*</span></label>                       
+                                <select name="CommunicationChannel" class="form-control" id="CommunicationChannel" [(ngModel)]="form.CommunicationChannel" required #CommunicationChannel="ngModel">
+                                    <option value="Web">Web</option>
+                                    <option value="Phone">Phone</option>
+                                </select>
+                                <div *ngIf= "CommunicationChannel.invalid && CommunicationChannel.touched" class="validation" >
+                                    <small>*Required field</small> 
+                                </div>
+                            </div>
+                        </div>
+
+                          
+                           
+                        <button type="submit" class="btn btn-primary btn-block mt-4 w-100" [disabled]="register.form.status==='INVALID'">Add</button>
+                        <!-- <button (click)="submit(formRef)" class="btn btn-primary btn-block mt-4 w-100">Add</button> -->
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="showMessage">
+            <br>
+            <div class="alert alert-success">
+              Bank details added successfully.
+            </div>
+          </div>
+    </div>
+</div>
+

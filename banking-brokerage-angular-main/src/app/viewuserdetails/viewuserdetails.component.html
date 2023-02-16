@@ -1,0 +1,65 @@
+<div class="container mt-3">
+    <h2>User Details </h2>
+    <div class="row mt-3 mb-3">
+        <div
+          class="col-12"
+        >
+          <div class="card p-2 mb-2">
+            <div class="card-body">
+              <div class="d-flex justify-content-evenly">
+                
+                    <div class="table-responsive mt-3">
+                        <table class="table table-striped" style="width:1000px">
+                          <tbody>
+                            <tr>
+                              <td align="left"><strong>First Name</strong></td>
+                              <td align="left">{{ user.firstName }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Last Name</strong></td>
+                                <td align="left">{{ user.lastName }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Job</strong></td>
+                                <td align="left">{{ user.job }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Job Location</strong></td>
+                                <td align="left">{{ user.jobLocation }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Primary Location</strong></td>
+                                <td align="left">{{ user.primaryLocation }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Address</strong></td>
+                                <td align="left">{{ user.address }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Permanent Address</strong></td>
+                                <td align="left">{{ user.permanentAddress }}</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Gross Salary</strong></td>
+                                <td align="left">{{ user.grossSalary }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                
+              </div>
+            </div>
+            <div class="card-footer mx-5">
+                <div class="py-2 d-flex justify-content-evenly">
+                    <button type="button" class="btn btn-warning" routerLink="/updateuser/{{user.id}}">Update User</button>
+                    <button type="button" class="btn btn-success" routerLink="/viewbankdetails/{{user.id}}">View Bank Details</button>
+                    <button type="button" class="btn btn-primary" routerLink="/addbank/{{user.id}}">Add Bank</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+</div>
+

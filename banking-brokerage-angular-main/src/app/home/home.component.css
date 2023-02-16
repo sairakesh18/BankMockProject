@@ -1,0 +1,6 @@
+.trElementEmulation li {
+    list-style:none;
+    float:left;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+}

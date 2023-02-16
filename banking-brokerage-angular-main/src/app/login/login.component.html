@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username" class="form-label">Username:<span style="color: red;">*</span></label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control">
+    </div>
+    <div>
+      <label for="password" class="form-label">Password:<span style="color: red;">*</span></label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Login</button>
+  </form>
+  
